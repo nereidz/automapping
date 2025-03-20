@@ -1,0 +1,282 @@
+﻿S.N.,COLUMN NAME,DATA TYPE,DATA LENGTH,DESCRIPTION,Reference
+1,SOURCE,VARCHAR2,20,"Claim data sources like 'HUMANA', 'ANTHEM', 'AETNA' etc.",
+2,SN,NUMBER,10,Claim Identification Number (Primary Key),
+3,CLMNUM,VARCHAR2,50,"Medical claim number. It is unique identifier for a claim, and it generally applied from Claim Header Num, Claim Line Num, etc.",
+4,CLAIMLINENUMBER,NUMBER,4,Claim line number,
+5,CLMTYPE,VARCHAR2,20,"Claim type like 'MED', 'DEN', 'VIS', 'STD', 'RX-MED' etc.",
+6,CLMTYPEDESC,VARCHAR2,50,"Description of claim type i.e. Medical (MED), Dental (DEN), Vision (VIS), Rx-Medical (RX-MED) etc.",
+7,CLMCATEGORY,VARCHAR2,20,"HI=Hospital Inpatient,
+HO=Hospital Outpatient
+PB=Professional
+LB=Lab",
+8,MEMID,VARCHAR2,50,Member identification number,
+9,ENRID,VARCHAR2,20,Enrollee identification number,
+10,RELFLAG,VARCHAR2,3,"Relationship flag to identify member as Enrollee(E), Spouse(S) or Dependent(D)",
+11,MEMFIRSTNAME,VARCHAR2,30,Member's first name,
+12,MEMLASTNAME,VARCHAR2,50,Member's last name,
+13,GENDER,VARCHAR2,1,Member's gender,
+14,DOB,DATE,,Date of birth,
+15,ADDR1,VARCHAR2,50,Member Street Address 1,
+16,ADDR2,VARCHAR2,50,Member Street Address 2,
+17,CITY,VARCHAR2,50,Name of city,
+18,STATE,VARCHAR2,2,Abbreviation of State,
+19,ZIP,VARCHAR2,15,Zip code,
+20,HOMEPHONE,VARCHAR2,20,Residence phone number,
+21,WORKPHONE,VARCHAR2,20,Office phone number,
+22,FROMDATE,DATE,,Date of service starts (Admission date for admissions),
+23,TODATE,DATE,,Date of service ends (Discharge date for admissions),
+24,SERVICEDATE,DATE,,Date of service,
+25,RCVDATE,DATE,,Date claim received,
+26,PAIDDATE,DATE,,Date claim paid,
+27,BILLTYPE,VARCHAR2,20,"Bill type codes to store claims as Facility(F), Ancillary(A) and Professional(P).",
+28,POSCODE,VARCHAR2,20,Place of service code (HCFA-compatible),
+29,POSDESC,VARCHAR2,70,Place of service description,
+30,SPECCODE,VARCHAR2,20,Provider specialty code,
+31,SPECDESC,VARCHAR2,70,Provider specialty description,
+32,DIAGCODE,VARCHAR2,20,Diagnosis or International Classification of Diseases (ICD-9) code,
+33,DIAGDESC,VARCHAR2,120,Description of diagnosis,
+34,FIRSTDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+35,FIRSTDIAGDESC,VARCHAR2,250,,
+36,SECONDDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+37,SECONDDIAGDESC,VARCHAR2,250,,
+38,THIRDDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+39,THIRDDIAGDESC,VARCHAR2,250,,
+40,FOURTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+41,FOURTHDIAGDESC,VARCHAR2,250,,
+42,FIFTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+43,FIFTHDIAGDESC,VARCHAR2,250,,
+44,SIXTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+45,SIXTHDIAGDESC,VARCHAR2,250,,
+46,SEVENTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+47,SEVENTHDIAGDESC,VARCHAR2,250,,
+48,EIGHTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+49,EIGHTHDIAGDESC,VARCHAR2,250,,
+50,NINTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+51,NINTHDIAGDESC,VARCHAR2,250,,
+52,TENTHDIAGCODE,VARCHAR2,20,Additional diagnosis or ICD-9 code,
+53,TENTHDIAGDESC,VARCHAR2,250,,
+54,PROCTYPE,VARCHAR2,20,"Procedure code type such as 'CPT', 'HCPCS', 'REV', 'ICDOPROC', 'DRG' etc.",
+55,PROCCODE,VARCHAR2,20,"Primary procedure code could be any CPT, HCPCS, ICDOPROC, REV or DRG.",
+56,PROCDESC,VARCHAR2,170,Description of Primary procedure,
+57,REVCODE,VARCHAR2,20,Revenue codes,
+58,DRGCODE,VARCHAR2,20,"Diagnosis-related group (DRG) codes Indicates the diagnostic related group to which a hospital claim belongs for prospective payment purposes. For CMS data, map it from DGNS_DRG_CD field of Part A Claims Header File",
+59,MODIFIERCODE,VARCHAR2,20,Modifier codes of procedure,
+60,MODIFIERDESC,VARCHAR2,70,Descriptions of modifier code,
+61,CPT4_1,VARCHAR2,20,Current Procedural Terminology (CPT) code,
+62,CPT4_2,VARCHAR2,20,Additional CPT code,
+63,CPT4_3,VARCHAR2,20,Additional CPT code,
+64,HCPCS,VARCHAR2,20,Healthcare Common Procedure Coding System (HCPCS) code,
+65,CPTII,VARCHAR2,20,Category II CPT codes are used to measure performance which is added for HEDIS purpose,
+66,MODIFIERCODE2,VARCHAR2,20,Additional Modifier codes,
+67,MODIFIERCODE3,VARCHAR2,20,Additional Modifier codes,
+68,MODIFIERCODE4,VARCHAR2,20,Additional Modifier codes,
+69,REVCODE1,VARCHAR2,20,Additional Revenue code,
+70,REVCODE2,VARCHAR2,20,Additional Revenue code,
+71,REVCODE3,VARCHAR2,20,Additional Revenue code,
+72,REVCODE4,VARCHAR2,20,Additional Revenue code,
+73,REVCODE5,VARCHAR2,20,Additional Revenue code,
+74,ICD9PROCCODE1,VARCHAR2,20,Additional ICD9 proc code,
+75,ICD9PROCCODE2,VARCHAR2,20,Additional ICD9 proc code,
+76,ICD9PROCCODE3,VARCHAR2,20,Additional ICD9 proc code,
+77,ICD9PROCCODE4,VARCHAR2,20,Additional ICD9 proc code,
+78,ICD9PROCCODE5,VARCHAR2,20,Additional ICD9 proc code,
+79,ICD9PROCCODE6,VARCHAR2,20,Additional ICD9 proc code,
+80,DRGTYPE,VARCHAR2,20,"Type of DRG:
+APDRG: All Patient - Diagnosis Relared Group (Leading 'A')
+DRG: Diagnosis Related Group (Leading 'D')
+MSDRG: Medicare Severity - Diagnosis Related Group (Leading 'M')",
+81,DRGIDENTIFIER,VARCHAR2,1,C: CMS DRG/M: MS DRG,
+82,IPDAYS,NUMBER,10,Inpatient days for admission line,
+83,DISCHSTATUS,VARCHAR2,20,Patient Discharge Status (2 digit long UB04/CMS codes),
+84,TYPEOFBILL,VARCHAR2,3,"Type of Bill (TOB) Information (UB04/CMS), three characters long
+- First digit (character) as 'Type of facility',
+- Second digit (character) as 'Bill Classification'
+- Third digit (character) as 'Frequency'. 
+Example - 110 (Hospital, Inpatient Non Payment/ Zero claim)",
+85,CLAIMSTATUS,VARCHAR2,1,Claims denied or not Y/N,
+86,ADJCODE,VARCHAR2,3,"Claim status (Paid(P), Denied(D), Reversal(R))",
+87,PROVID,VARCHAR2,6,Provider identification number such as client specific number or NPI,
+88,PROVNAME,VARCHAR2,70,Name of provider,
+89,PROVIDERFIRSTNAME,VARCHAR2,50,"First name of provider, if applicable",
+90,PROVIDERLASTNAME,VARCHAR2,50,"Last name of provider, if applicable",
+91,PROVNPI,VARCHAR2,10,National Provider Identifier (NPI) number,
+92,PROVZIPCODE,VARCHAR2,9,Provider ZIP code,
+93,SERVTYPECODE,VARCHAR2,2,Type of Service (TOS) code,
+94,SERVTYPEDESC,VARCHAR2,70,Type of Service (TOS) description,
+95,PROVTYPECODE,VARCHAR2,20,Provider Type Code,
+96,PROVTYPEDESC,VARCHAR2,70,Provider Type Description,
+97,SPECROLLUPCODE,VARCHAR2,20,"Higher level of provider specialty code, if required",
+98,SPECROLLUPDESC,VARCHAR2,70,"Higher level of provider specialty description, if required",
+99,NWKID,VARCHAR2,20,Network code,
+100,NWKNAME,VARCHAR2,70,Description of network,
+101,INNWK,VARCHAR2,1,In or out of network,
+102,NETWORKTYPE,VARCHAR2,20,Domestic or Foreign,
+103,SERVICEUNITS,NUMBER,10,"Number of units:
+For CMS client, map it from following fields in different files:
+Part A Revenue file: CLM_LINE_SRVC_UNIT_QTY
+Part B Physician file: CLM_LINE_SRVC_UNIT_QTY",
+104,PAIDAMT,NUMBER,22,Amount paid,
+105,BILLEDAMT,NUMBER,22,Amount billed,
+106,ALLOWEDAMT,NUMBER,22,Amount allowed under contract,
+107,PPOSAVINGAMT,NUMBER,22,Amount of savings as generated by PPO network,
+108,ENPAIDAMT,NUMBER,22,Amount paid by enrollee,
+109,COINSAMT,NUMBER,22,Amount of coinsurance,
+110,COPAYAMT,NUMBER,22,Amount of copay,
+111,DEDUCTAMT,NUMBER,22,Amount of deductible,
+112,NOTALLOWEDAMT,NUMBER,22,Amount not allowed,
+113,COBAMT,NUMBER,22,Coordination of Benefits amount,
+114,PLANEXCLAMT,NUMBER,22,Plan limit exclusion amount,
+115,LABTESTDATA,NUMBER,22,Lab test reading best on procedure,
+116,SICCODE,VARCHAR2,20,Standard Industrial Classification (SIC) code of industry,
+117,SICDESC,VARCHAR2,50,Standard Industrial Classification (SIC) description of industry,
+118,SSN,VARCHAR2,20,Social Security Number of member,
+119,SOURCEFORM,VARCHAR2,20,,
+120,SOURCETYPE,VARCHAR2,20,,
+121,MEM_UID,VARCHAR2,50,Universal Member ID (Master Member ID),
+122,PAIDDAYS,NUMBER,4,,
+123,EMP_NBR,VARCHAR2,20,,
+124,MEDELIGCATID,NUMBER,1,,
+125,PRODUCTID,NUMBER,4,,
+126,ICDTYPE,VARCHAR2,10,"Type of ICD (ICD9/ICD10)
+Note: Default 'ICD9'. For claims incurred before 2015-10-15, it should be 'ICD9'. Otherwise, it should be 'ICD10'",
+127,CLMHEADERNUMBER,VARCHAR2,50,Header of the Claim Number. This is the Claim Number field obtained from Client,
+128,NCHCLMTPYECD,VARCHAR2,2,"Medicare Claim Type Code. This is the code used to identify the type of claims record being processed in NCH (National Claims History) which is consumed by CMS. 
+Possible codes for this field are: 
+10 (HHA CLAIM), 
+20 (SNF NON-SWING BED CLAIM), 
+30 (SNF SWING BED CLAIM), 
+40 (HOSPITAL OUTPATIENT CLAIM), 
+41 (OUTPATIENT FULL ENCOUNTER CLAIM), 
+42 (OUTPATIENT ABBREVIATED ENCOUNTER CLAIM), 
+50 (HOSPICE CLAIM), 
+60 (INPATIENT CLAIM), 
+61 (INPATIENT FULL ENCOUNTER CLAIM), 
+62 (INPATIENT ABBREVIATED ENCOUNTER CLAIM), 
+71 (RIC O non-DMEPOS CLAIM), 
+72 (RIC O DMEPOS CLAIM), 
+73 (PHYSICIAN ENCOUNTER CLAIM), 
+81 (RIC M non-DMEPOS DMERC CLAIM), 
+82 (RIC M DMEPOS DMERC CLAIM). 
+Map it from CLM_TYPE_CD field of Part A Claims Header File.
+Source: https://resdac.org/cms-data/variables/nch-claim-type-code",https://resdac.org/search-data-variables
+129,ADMTYPE,VARCHAR2,20,"Indicates the type and priority of inpatient services: 
+Claim Admission Type Codes are:
+1=Emergency, 
+2=Urgent, 
+3=Elective, 
+4=Newborn, 
+5=Trauma Center, 
+6=Reserved, 
+9=Unknown",https://resdac.org/search-data-variables
+130,ADMTISOURCE,VARCHAR2,20,"Claim Admission Source Code Indicates the source of the beneficiary's referral for admission or visit (e.g., a physician or another facility) Find Admission Source Codes here: www.resdac.org/cms-data/variables/Claim-Source-Inpatient-Admission-Code 
+For CMS data, map it from CLM_ADMSN_SRC_CD field of Part A Claims Header File.",https://resdac.org/search-data-variables
+131,SRCRELFLAG,VARCHAR2,50,,
+132,MDCR_NPMT_RSN_CD,VARCHAR2,2,"Claim Medicare Non-Payment Reason Code Indicates the reason payment on an institutional claim is denied Find Medicare Non-Payment Reason Codes here: www.resdac.org/cms-data/variables/claim-medicare-non-payment-reason-code 
+For CMS data, map it from CLM_MDCR_NPMT_RSN_CD field of Part A Claims Header file",
+133,PROV_CCN,VARCHAR2,6,"CMS Certification Number for a facility provider.
+A facility's Medicare Medicaid identification number. 
+It is also known as a Medicare Medicaid Provider Number, or CCN.
+This number verifies that a provider has been Medicare certified for a particular type of service. 
+Map it from PRVDR_OSCAR_NUM field of Part A Claims Header File.",
+134,CLM_ADJSMT_TYPE_CD,VARCHAR2,2,"Claim Adjustment Type Code 
+Indicates whether the claim is an original, cancellation, or adjustment claim
+Claim Adjustment Type Codes are: 
+0=Original Claim 
+1=Cancellation Claim 
+2=Adjustment claim 
+
+For CMS data, map it from CLM_ADJSMT_TYPE_CD field of Part A Claims Header File.",
+135,CLM_QLERY_CD,VARCHAR2,1,"Claims Query Code 
+Indicates the type of claim/record being processed with respect to payment 
+(e.g., debit/credit indicator or interim/final indicator). 
+Claim Query Codes are: 
+0=Credit adjustment, 
+1=Interim bill, 
+2=HHA benefits exhausted, 
+3=Final bill
+4=Discharge notice
+5=Debit adjustment
+For CMS data, map it from CLM_QUERY_CD field of Part A Claims Header file",
+136,PRNCPL_DIAG_CD,VARCHAR2,7,"Principal Diagnosis Code for admissions 
+The International Classification of Diseases (ICD)-9/10 diagnosis code identifies the beneficiary's 
+principal illness or disability 
+For CMS data, map this from PRNCPL_DGNS_CD field of Part A Claims Header File.",
+137,ADMTG_DIAG_CD,VARCHAR2,7,"Admitting Diagnosis Code for admission
+The ICD-9/10 diagnosis code identifies the illness or disability for which the beneficiary was admitted
+For CMS data, map this from ADMTG_DGNS_CD field of Part A Claims Header File.",
+138,HDR_FROM_DT,DATE,,"Header Claim From Date
+The first day on the billing statement that covers services rendered to the beneficiary
+Also known as 'Statement Covers From Date'.
+For CMS data, map this from CLM_FROM_DT field of Part A Claims Header File.",
+139,HDR_THRU_DT,DATE,,"Header Claim Thru Date
+The last day on the billing statement that covers services rendered to the beneficiary.
+Also known as 'Statement Covers Through Date'.
+For CMS data, map this from CLM_THRU_DT field of Part A Claims Header File.",
+140,OP_SRVC_TYP_CD,VARCHAR2,,"Claim Outpatient Service Type Code. 
+Indicates the type and priority of outpatient service. 
+Claim Outpatient Service Type Codes are: 
+0 = Blank, 
+1 = Emergency, 
+2 = Urgent, 
+3 = Elective, 
+5-8 = Reserved, 
+9 = Unknown. 
+For CMS data, map this from CLM_OP_SRVC_TYPE_CD field of Part A Claims Header File.",
+141,PLANNUMBER,VARCHAR2,20,Plan number for which the claim is billed,
+142,PLANNAME,VARCHAR2,200,Plan name for which the claim is billed,
+143,PLANTYPE,VARCHAR2,100,Plan type for which the claim is billed,
+144,POPULATIONTYPE,VARCHAR2,20,"Valid Code to identify Population Type
+CM - Commercial, MC - Medicare, MD - Medicaid",
+145,REFRNGPROVID,VARCHAR2,20,ID of Referring Provider,
+146,REFRNGPROVNAME,VARCHAR2,50,Name of Referring Provider,
+147,REFERNGPROVNPI,VARCHAR2,20,NPI of Referring Provider,
+148,BILLNGPROVID,VARCHAR2,20,ID of Billing Provider,
+149,BILLNGPROVNAME,VARCHAR2,70,Name of Billing Provider,
+150,BILLNGPROVNPI,VARCHAR2,20,NPI of Billing Provider,
+151,BILLNGPROVTAXID,VARCHAR2,20,Tax ID of Billing Provider,
+152,SRVCNGPROVID,VARCHAR2,20,ID of Servicing Provider,
+153,SRVCNGPROVNAME,VARCHAR2,70,Name of Servicing Provider,
+154,SRVCNGPROVNPI,VARCHAR2,20,NPI of Servicing Provider,
+155,ATNDNGPROVID,VARCHAR2,20,ID of Attending Provider,
+156,ATNDNGPROVNAME,VARCHAR2,70,Name of Attending Provider,
+157,ATNDNGPROVNPI,VARCHAR2,20,NPI of Attending Provider,
+158,OPRTNGPROVID,VARCHAR2,20,ID of Operating Provider,
+159,OPRTNGPROVNAME,VARCHAR2,70,Name of Operating Provider,
+160,OPRTNGPROVNPI,VARCHAR2,20,NPI of Operating Provider,
+161,OTHERPROV1ID,VARCHAR2,20,ID of Other Provider 1,
+162,OTHERPROV1NAME,VARCHAR2,70,Name of Other Provider 1,
+163,OTHERPROV1NPI,VARCHAR2,20,NPI of Other Provider 1,
+164,OTHERPROV2ID,VARCHAR2,20,ID of Other Provider 2,
+165,OTHERPROV2NAME,VARCHAR2,70,Name of Other Provider 2,
+166,OTHERPROV2NPI,VARCHAR2,20,NPI of Other Provider 2,
+167,PAYMENT_TYPE_CD,VARCHAR2,3,"Payment Type Code for the claim. It can have following 3 letter values: 
+FFS: Fee for Service, 
+P4P: Pay for Performance, 
+CAP: Capitation, 
+BUN: Bundled Payment, 
+DRG: DRG, 
+OTH: Other.",
+168,POA_FIRSTDIAGCODE,VARCHAR2,1,"POA (Present on Admission) flag for First Diagnosis Code. 
+Possible values for POA Flag are: 
+Y: Diagnosis was present at the time of inpatient admission, 
+N: Diagnosis was not present at the time of inpatient admission, 
+U: Unknown - Documentation insufficient to determine if condition was present at the time of inpatient admission, 
+W: Clinically undetermined. Provider unable to clinically determine whether the condition was present at the time of inpatient admission, 
+1: Not provided from data vendor
+
+Note: Default '1'.",
+169,CVX,VARCHAR2,5,Vaccine administered code,
+170,CPTIIMODIFIERCODE,VARCHAR2,5,CPT category II modifier,
+171,CPTIIMODIFIERCODE2,VARCHAR2,5,CPT category II modifier,
+172,PNNINDICATOR,VARCHAR2,1,Contains the positive or negative indicator for diabetes eye exam for CDC. Must contain a 'P' for positive or a 'N' for negative.,
+173,HOSPITAL_ID,VARCHAR2,10,"Facility location number. For hospitals, enter the Medicare Hospital ID in this field used for the HAI measure.",
+174,CPTII2,VARCHAR2,20,Additional CPT category II: CPT-4 procedure code,
+175,RXHCC,VARCHAR2,50,RXHCC Code,
+176,HCPCS2,VARCHAR2,20,Additional HCPCS and CDT codes,
+177,ADMISSION_STATUS,VARCHAR2,2,"Admission codes for transfer for the AHRQ PQI Medicaid measures: - 
+02 = Another hospital, 
+03 = Another facility, including long-term care Point of Origin UB-04 Codes, 
+04 = Transfer from a Hospital
+05 = Transfer from a Skilled Nursing Facility or Intermediate Care Facility (ICF), 
+06 = Transfer from another health care facility",
+178,SCCF,VARCHAR2,17,Claim number. Required for BCBS Association retrieval clients only,
